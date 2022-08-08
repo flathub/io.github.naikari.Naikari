@@ -29,7 +29,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/LuaJIT/LuaJIT.git
-        tag: v2.1
+        #branch: v2.1
         commit: 4c2441c16ce3c4e312aaefecc6d40c4fe21de97c
 
   - name: libunibreak
