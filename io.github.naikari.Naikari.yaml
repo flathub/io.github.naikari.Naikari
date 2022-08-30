@@ -3,7 +3,6 @@ runtime: org.freedesktop.Platform
 runtime-version: '21.08'
 sdk: org.freedesktop.Sdk
 command: naikari
-rename-icon: naikari
 finish-args:
   - --socket=pulseaudio
   - --socket=wayland
@@ -119,10 +118,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/naikari/naikari.git
-        tag: v0.3.0
-        commit: a4bf43f68a09f8879afd4bb143e92bb572d0b85a
+        tag: v0.4.0
+        commit: a552a893172afa1cfe0f708f5afda9b5129bfd0d
         x-checker-data:
           type: git
           tag-pattern: ^v([\\d.]+)$
-      - type: patch
-        path: appdata.patch
