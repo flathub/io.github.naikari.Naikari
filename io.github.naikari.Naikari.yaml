@@ -117,4 +117,5 @@ modules:
         commit: f2b673738ddc642c2569c9d642a1d78d1672a12a
         x-checker-data:
           type: git
-          tag-pattern: ^v([\\d.]+)$
+          tag-pattern: ^v([\d.]+)$
+          stable-only: true
