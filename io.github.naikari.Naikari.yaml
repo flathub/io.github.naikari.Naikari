@@ -119,3 +119,5 @@ modules:
           type: git
           tag-pattern: ^v([\d.]+)$
           stable-only: true
+      - type: patch
+        path: metainfo-add.patch
