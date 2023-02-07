@@ -113,11 +113,9 @@ modules:
     sources:
       - type: git
         url: https://github.com/naikari/naikari.git
-        tag: v0.5.2
-        commit: 97698c7c713f5940b362864d01d918e57c3721e8
+        tag: v0.6.0
+        commit: 4d42e02e26731f6db6470c2bd08ae0bc1099c43f
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
           stable-only: true
-      - type: patch
-        path: metainfo-add.patch
