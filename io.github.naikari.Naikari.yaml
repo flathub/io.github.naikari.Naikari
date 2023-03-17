@@ -17,19 +17,7 @@ cleanup:
 modules:
   - shared-modules/physfs/physfs.json
 
-  - name: luajit
-    no-autogen: true
-    make-install-args:
-      - PREFIX=${FLATPAK_DEST}
-    cleanup:
-      - /bin
-      - /share
-      - /include/luajit-2.1
-    sources:
-      - type: git
-        url: https://github.com/LuaJIT/LuaJIT.git
-        #branch: v2.1
-        commit: 4c2441c16ce3c4e312aaefecc6d40c4fe21de97c
+  - shared-modules/luajit/luajit.json
 
   - name: libunibreak
     cleanup:
