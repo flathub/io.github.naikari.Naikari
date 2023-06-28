@@ -107,5 +107,3 @@ modules:
           type: git
           tag-pattern: ^v([\d.]+)$
           stable-only: true
-      - type: patch
-        path: metainfo-release-fix.patch
