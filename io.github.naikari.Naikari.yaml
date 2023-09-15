@@ -101,8 +101,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/naikari/naikari.git
-        tag: v0.10.0
-        commit: 9660010a24bed0ae137364fe71ba3c2786aabe63
+        tag: v0.10.1
+        commit: 96fa9a719b697bf88d70f6feb3f6e61f1871cee9
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
