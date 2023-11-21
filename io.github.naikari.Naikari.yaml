@@ -1,6 +1,6 @@
 id: io.github.naikari.Naikari
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '21.08'
 sdk: org.freedesktop.Sdk
 command: naikari
 finish-args:
