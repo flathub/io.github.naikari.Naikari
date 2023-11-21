@@ -109,3 +109,5 @@ modules:
           stable-only: true
       - type: patch
         path: metainfo-release-tag-fix.patch
+      - type: patch
+        path: disable-dirty.patch
