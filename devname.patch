@@ -1,14 +1,12 @@
 diff --git a/io.github.naikari.Naikari.metainfo.xml b/io.github.naikari.Naikari.metainfo.xml
-index 346c5b323d..8372984dfe 100644
+index 346c5b323d..92e2319a5c 100644
 --- a/io.github.naikari.Naikari.metainfo.xml
 +++ b/io.github.naikari.Naikari.metainfo.xml
-@@ -11,6 +11,10 @@
+@@ -11,6 +11,8 @@
      <p>You assume control of a space ship and are free to advance thru the game however you want. Uncover the cause of the mysterious Incident, discover the source of the pirate scourge, or make your own way in the galaxy. In the eye of the storm that is chaos, there is great opportunity.</p>
    </description>
  
-+  <developer id="onpon4.github.io">
-+    <name>Diligent Circle</name>
-+  </developer>
++  <developer_name>Diligent Circle</developer_name>
 +
    <categories>
      <category>Game</category>
