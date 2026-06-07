@@ -1,6 +1,6 @@
 id: io.github.naikari.Naikari
 runtime: org.freedesktop.Platform
-runtime-version: '22.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: naikari
 finish-args:
@@ -10,18 +10,16 @@ finish-args:
   - --device=dri
   - --share=ipc
 cleanup:
-  - '*.a'
-  - '*.la'
   - /include
+  - '*.la'
+  - '*.a'
 
 modules:
   - shared-modules/physfs/physfs.json
-
   - shared-modules/luajit/luajit.json
+  - shared-modules/SDL2/SDL2_image.json
 
   - name: libunibreak
-    cleanup:
-      - /include
     config-opts:
       - --disable-static
     sources:
@@ -30,11 +28,10 @@ modules:
         sha256: 58f2fe4f9d9fc8277eb324075ba603479fa847a99a4b134ccb305ca42adf7158
 
   - name: glpk
-    cleanup:
-      - /bin
-      - /include
     config-opts:
       - --disable-static
+    cleanup:
+      - /bin
     sources:
       - type: archive
         url: https://ftp.gnu.org/gnu/glpk/glpk-5.0.tar.gz
@@ -44,6 +41,12 @@ modules:
           project-id: 1183
           stable-only: true
           url-template: https://ftp.gnu.org/gnu/glpk/glpk-$version.tar.gz
+      - type: patch
+        paths:
+          # Pathces are copied from Fedora
+          - patches/glpk-4.65-unbundle-zlib.patch
+          - patches/glpk-4.65-alias.patch
+          - patches/glpk-5.0-bool.patch
 
   - name: openblas
     no-autogen: true
@@ -55,12 +58,10 @@ modules:
       - USE_OPENMP=0
     make-install-args:
       - PREFIX=${FLATPAK_DEST}
-    cleanup:
-      - /include/openblas
     sources:
       - type: archive
-        url: https://github.com/xianyi/OpenBLAS/releases/download/v0.3.29/OpenBLAS-0.3.29.tar.gz
-        sha256: 38240eee1b29e2bde47ebb5d61160207dc68668a54cac62c076bb5032013b1eb
+        url: https://github.com/xianyi/OpenBLAS/releases/download/v0.3.33/OpenBLAS-0.3.33.tar.gz
+        sha256: 6761af1d9f5d353ab4f0b7497be2643313b36c8f31caec0144bfef198e71e6ab
         x-checker-data:
           type: anitya
           project-id: 2540
@@ -81,14 +82,12 @@ modules:
       - INSTALL_INCLUDE=${FLATPAK_DEST}/include/suitesparse
       - INSTALL_LIB=${FLATPAK_DEST}/lib
       - library
-    cleanup:
-      - /include/suitesparse
     sources:
       - type: archive
         url: https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.13.0.tar.gz
         sha256: 59c6ca2959623f0c69226cf9afb9a018d12a37fab3a8869db5f6d7f83b6b147d
       - type: patch
-        path: suitesparse-reduce-build.patch
+        path: patches/suitesparse-reduce-build.patch
 
   - name: naikari
     buildsystem: meson
@@ -107,5 +106,8 @@ modules:
           type: git
           tag-pattern: ^v([\d.]+)$
           stable-only: true
+          is-main-source: true
       - type: patch
-        path: devname.patch
+        paths:
+          - patches/naikari-fix-missing-header-files.patch
+          - patches/devname.patch
