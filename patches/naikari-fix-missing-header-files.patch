@@ -1,0 +1,25 @@
+From 3e631ec273841ea54664f3049b96756ceb1a9cf6 Mon Sep 17 00:00:00 2001
+From: Sabri Ünal <yakushabb@gmail.com>
+Date: Sun, 7 Jun 2026 15:46:18 +0300
+Subject: [PATCH] naikari: Fix missing header files
+
+Signed-off-by: Sabri Ünal <yakushabb@gmail.com>
+---
+ src/lutf8lib.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/lutf8lib.c b/src/lutf8lib.c
+index d8183bf..5043715 100644
+--- a/src/lutf8lib.c
++++ b/src/lutf8lib.c
+@@ -32,6 +32,7 @@ SOFTWARE.
+ /** @endcond */
+ 
+ #include "unidata.h"
++#include <limits.h>
+ 
+ /* UTF-8 string operations */
+ 
+--
+libgit2 1.7.2
+
